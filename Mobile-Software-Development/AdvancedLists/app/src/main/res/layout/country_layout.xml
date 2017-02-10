@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+    <TableRow
+        android:gravity="center"
+        android:id="@+id/tableRow1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="4dip" >
+              <TextView
+                  android:gravity="center"
+                  android:textSize="56sp"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:id="@+id/label"/>
+    </TableRow>
+
+    <TableRow
+        android:gravity="center"
+        android:id="@+id/tableRow2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="3dip" >
+
+    <ImageView
+        android:gravity="center"
+        android:id="@+id/img"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_below="@id/label"
+        android:layout_toLeftOf="@id/label"
+        />
+    </TableRow>
+    <TableRow
+        android:gravity="center"
+        android:id="@+id/tableRow3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="5dip" >
+
+    <Button
+        android:gravity="center"
+        android:id="@+id/back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/img"
+        android:text="Return To List"
+        android:layout_toLeftOf="@id/img"/>
+    </TableRow>
+
+</TableLayout>

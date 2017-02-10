@@ -1,0 +1,91 @@
+--Q1 
+
+DECLARE
+V_AccNo NUMBER(8);
+V_ClName VARCHAR2(40); 
+V_ClientId NUMBER(7);
+BEGIN
+V_AccNo := '&Enter_Account_No';
+
+SELECT ClientId into V_ClientId FROM LT_Account WHERE AccNo = V_AccNo;
+SELECT CLName INTO V_ClName FROM LT_CLIENT WHERE ClientId = V_CLientId;
+
+DBMS_OUTPUT.PUT_LINE ('Account number ' ||V_AccNo|| ' belongs to ' ||V_ClName|| '.');
+END;
+
+--Q2 & 3
+
+DROP SEQUENCE clId;
+
+CREATE SEQUENCE clId
+  MINVALUE 100000
+  MAXVALUE 999999999
+  START WITH 100000
+  INCREMENT BY 1
+  CACHE 20;
+  
+DECLARE
+ V_CTitle VARCHAR2(4);
+ V_CFName VARCHAR2(30);
+ V_CLName VARCHAR2(40);
+ V_CAddr VARCHAR2(50);
+ V_CEmail VARCHAR2(30);
+ V_CPhone NUMBER(15);
+BEGIN
+V_CTitle := '&Enter_Your_Title';
+V_CFName := '&Enter_Your_First_Name';
+V_CLName := '&Enter_Your_Last_name';
+V_CAddr := '&Enter_Your_Address';
+V_CEmail := '&Enter_Your_Email';
+V_CPhone := '&Enter_Your_Phone_Number';
+
+DBMS_OUTPUT.PUT_LINE ('Name is ' ||V_CFName|| '.');
+
+INSERT INTO LT_CLIENT (ClientId, CTitle, CFName, CLName, CAddr, CEmail, CPhone)
+VALUES (clId.NEXTVAL, V_CTitle, V_CFName, V_CLName, V_CAddr, V_CEmail, V_CPhone);
+COMMIT;
+END;
+
+--Q4
+
+DECLARE
+V_ClientId NUMBER(7);
+V_AccNo NUMBER(8);
+V_CFName VARCHAR2(30);
+V_CLName VARCHAR2(40);
+V_Deposit Number(8,2) := 0;
+V_Withdrawl Number(8,2) := 0;
+V_Boolean CHAR := 'F';
+V_Total Number(8,2) := 0;
+
+BEGIN
+V_ClientId := '&Enter_Your_Id';
+
+--SELECT AccNo into V_AccNo From LT_Account WHERE ClientId = V_ClientId;
+FOR rec IN (SELECT AccNo FROM LT_Account WHERE ClientId = V_ClientId)
+      LOOP
+        FOR rec2 IN (SELECT * FROM LT_Transaction WHERE AccNo = rec.AccNo)
+        LOOP
+            IF rec2.TxType = 'D' THEN
+              V_Deposit := rec2.TxAmount + V_Deposit;
+              V_Boolean := 'T';
+            ELSIF rec2.TxType = 'W' THEN
+              V_Withdrawl := rec2.TxAmount + V_Withdrawl;
+              V_Boolean := 'T';
+            END IF;
+        END LOOP; 
+       END LOOP;
+       
+SELECT CFName, CLName into V_CFName, V_CLName FROM LT_Client where ClientId = V_ClientId;
+V_Total := V_Deposit - V_Withdrawl;
+
+IF V_Boolean = 'F' THEN
+  DBMS_OUTPUT.PUT_LINE ('Client ' ||V_ClientId|| ' ' ||V_CFName|| ' ' ||V_CLName|| ' does not have any transactions.');
+ELSIF V_Boolean = 'T' THEN
+  DBMS_OUTPUT.PUT_LINE ('Client ' ||V_ClientId|| ' ' ||V_CFName|| ' ' ||V_CLName|| ' total transactions amount to ' ||V_Total|| '.');
+END IF;
+END;
+
+
+
+

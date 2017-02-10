@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">Task Scheduler</string>
+    <string name="action_settings">Settings</string>
+    <color name="white">#FFFFFF</color>
+    <color name="red">#b06666</color>
+    <color name="teal">#00bde4</color>
+    <string name="from_date">From Date</string>
+    <string name="to_date">To Date</string>
+    <string name="title_activity_login">LoginActivity</string>
+    <string name="title_activity_main_task">MainTaskActivity</string>
+    <string name="title_activity_register">Register</string>
+    <string name="title_activity_registration">Registration</string>
+    <string name="title_activity_log_in">LogInActivity</string>
+    <string name="title_activity_get_tasks">getTasks</string>
+    <string name="title_activity_create_new_task">CreateNewTask</string>
+    <string name="title_activity_task_create">TaskCreate</string>
+    <string name="title_activity_in_depth_task">InDepthTaskActivity</string>
+</resources>

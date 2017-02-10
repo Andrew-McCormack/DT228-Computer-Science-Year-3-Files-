@@ -1,0 +1,27 @@
+Hostbuddy
+TobiasRieper
+likujfsdg30
+
+DB LoginName: 9e3112_tasks
+DB Pass: Database1234
+
+New Name: andymcc
+Hitman2876
+
+scheme://9e3112_tasks[:Database1234]@MYSQL5013.HostBuddy.com
+
+
+Apperly
+John Quirke
+ytvwsrmq@zetmail.com
+iuyhbgr857
+
+--
+Setting auto increment back after deletion
+ALTER TABLE users AUTO_INCREMENT=1001;
+
+Timestamp should look like this:
+2015-11-29 09:30:00.000000
+
+Inserts
+INSERT INTO `db_9e3112_tasks`.`users` (`_id`, `userName`, `firstName`, `lastName`, `userPassWord`, `userLocation`, `userEmail`) VALUES (NULL, 'mackie72', 'Vic', 'Mackie', '12345', 'America', 'mcie@hotmail.com');

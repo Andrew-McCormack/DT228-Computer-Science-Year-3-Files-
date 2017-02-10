@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<student>
+	<personalDetails>
+		<name>John Gunning</name>
+		<gender>Male</gender>
+	</personalDetails>
+	<address>
+		<addressLine1>32 Blacklion</addressLine1>
+		<addressLine2>Co. Wicklow</addressLine2>
+	</address>
+	<age>25</age>
+	<courseDetails>
+		<course>Computer Science</course>
+		<studentType>Part Time</studentType>
+	</courseDetails>
+	<cityOfStudy>Dublin</cityOfStudy>
+	<institution>DIT</institution>
+</student>
